@@ -1,0 +1,143 @@
+InteractiveWidget:
+
+<InteractiveWidget>:
+    ToggleButton:
+        id:togglebutton
+        text:'OFF'
+        size_hint:None , 1
+        width: "100dp" 
+        on_state:root.toggle_action(self)
+    BoxLayout:
+        orientation:'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation:'vertical'
+                TextInput:
+                    id:textinput
+                    text:'hello'
+                Button:
+                    text:"button"
+                    on_press:root.click_action()
+                    disabled:not root.button_enable
+            Label:
+                id:label
+                text:'hello'
+                font_name: 'fonts/Wintersong.ttf'
+                font_size:80
+        BoxLayout:
+            orientation:'vertical'
+            Label:
+                text:str(int(the_slider.value))
+            Switch:
+                id:the_switch
+                text:'text'
+            ProgressBar:
+                max:100
+                value:the_slider.value
+            Slider:
+                id:the_slider
+                text:'text'
+                min:0
+                max:100
+                value:20
+                orientation:"vertical"
+                disabled:not the_switch.active
+
+##################################
+##################################
+##################################
+# PageLayout
+<PageLayoutExample@PageLayout>:
+    MainWidgetExample:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
+    StackLayoutExample:
+
+##################################
+# ScrollView
+<ScrollViewLayoutExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1 , None
+        height:self.minimum_height
+
+
+##################################
+# stacklayout
+<StackLayoutExample>:
+    orientation: 'rl-tb'
+    padding: ('10dp', '10dp', '10dp', '10dp')
+    spacing: '10dp'
+
+
+##################################
+# gridlayout
+<GridLayoutExample>:
+    # cols:3
+    rows:2
+
+    Button:
+        text:'A'
+        size_hint: None , 1
+        width:100
+    
+    BoxLayoutExample:
+
+    Button:
+        text:'C'
+        size_hint: None , 1
+        width:100
+    
+    Button:
+        text:'D'
+
+
+##################################
+# AnchorLayout
+<AnchorLayoutExample>
+    anchor_x: 'center' # left , right , center
+    anchor_y: 'top'  # top , bottom , center
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: .2,.2
+        Button:
+            text: 'A'
+        Button:
+            text: 'B'
+
+##################################
+# BoxLayout
+<BoxLayoutExample>:
+    orientation:'vertical'
+    Button:
+        text:'A'
+        size_hint: .5, None
+        height:100
+        # width:200
+        # size: 200 , 100 
+        pos_hint: {"right": 0.75} # top , y , center_y , right , x , center_x
+
+    BoxLayout:
+        orientation:'horizontal'
+        spacing: '10dp'
+        size_hint: 1 , 3
+        Button:
+            text:'B'
+        Button:
+            text:'B'
+        Button:
+            text:'B'
+    Button:
+        text:'C'
+
+
+##################################
+# MainWidget
+<MainWidgetExample>:
+    Button:
+        text:'A'
+        size: 200,200
+        pos: 100 ,100
+        color: 1 , 0 , 0 , 1
+        background_color: 0 , 1 , 0 , 1 
